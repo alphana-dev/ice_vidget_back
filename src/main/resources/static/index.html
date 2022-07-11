@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script async type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+<style>.iceBitsyPayRow {
+    display: block;
+    margin: 1%;
+    width: 160px;
+}</style>
+
+<div id="qr-container"></div>
+<form name="iceBitsyPayForm" onsubmit="iceDevApi.qrCodeSubmit(); return false;">
+    <input class="iceBitsyPayRow" type="hidden" name="shopAuthCode" value="eyJhZ2VudGlkIjoiMDAwMDAwMDAwMDAxIiwiaW5ub2dybiI6IjExNTI2NTEwMjA1NDMiLCJ0ZXJtaW5hbFJlZiI6ODEsImxvZ2luIjoiMDAwMDAwMDAwMDAxLjExNTI2NTEwMjA1NDMuYWRtaW4iLCJzaG9wUmVmIjozLCJjb2RlIjoiZDg4MWE2YWEtNTYwMC00YTI3LWFkZWMtMDUyNzAwMjZmMzQ4In0=">
+    <input class="iceBitsyPayRow" type="hidden" name="shopUid" value="123455666778898">
+    <input class="iceBitsyPayRow" type="hidden" name="currency" value="RUB">
+    <input class="iceBitsyPayRow" type="text" placeholder="Сумма заказа" name="amount" required value="83">
+    <input class="iceBitsyPayRow" type="hidden" placeholder="Номер заказа" name="order" value="dd4df34r24werd4">
+    <input class="iceBitsyPayRow" type="hidden" placeholder="Описание заказа" name="description" value="Оплата товара">
+    <input class="iceBitsyPayRow" type="hidden" placeholder="ФИО плательщика" name="name" value="Иванов Иван Иванович">
+    <input class="iceBitsyPayRow" type="hidden" placeholder="E-mail" name="email" value="">
+    <input class="iceBitsyPayRow" type="hidden" placeholder="Контактный телефон" name="phone" value="9857456322">
+    <input class="iceBitsyPayRow" type="submit" name="payButton" value="Оплатить">
+</form>
+
+
+<script type="text/javascript">
+    (function () {
+        var init = function () {
+            iceDevApi.qrCode();
+        };
+        if (typeof iceDevApi !== 'undefined') {
+            init();
+        } else {
+            (iceDevApiInitCallbacks = window.iceDevApiInitCallbacks || []).push(init);
+        }
+    })();
+</script>
+
+</body>
+
+</html>
