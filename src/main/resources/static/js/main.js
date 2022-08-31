@@ -1,6 +1,33 @@
-var IceDevQr;
+let IceDevQr;
+let QRCode;
+
+onSet(1);
+
+function onSet(type){
+    let set_content = document.getElementsByClassName("set_content")[0];
+    let prop_content = document.getElementsByClassName("prop_content")[0];
+    let prop_row = document.getElementsByClassName("prop_row")[0];
+    let set_row = document.getElementsByClassName("set_row")[0];
+
+    if (type == 1){
+        set_content.style.display = "";
+        prop_content.style.display = "none";
+        set_row.style.color="black"
+        prop_row.style.color="rgba(0,0,0,.54)"
+        set_row.style.borderBottom="rgba(0, 0, 0, 0.5) 2px solid";
+        prop_row.style.borderBottom="";
+    } else {
+        set_content.style.display = "none";
+        prop_content.style.display = "";
+        prop_row.style.color = "black"
+        set_row.style.color = "rgba(0,0,0,.54)"
+        prop_row.style.borderBottom="rgba(0, 0, 0, 0.5) 2px solid";
+        set_row.style.borderBottom="";
+    }
+}
+
 (function (IceDevQr) {
-    var QrCode = /** @class */ (function () {
+    const QrCode = /** @class */ (function () {
         function QrCode(instance) {
             this.apiInstance = instance;
             this.containerElement = document.getElementById("qr-container");
@@ -21,22 +48,23 @@ var IceDevQr;
             }
 
             this.json = JSON.stringify({
-                shopAuthCode    : this.shopAuthCode,
-                shopUid         : this.shopUid,
-                amount          : this.amount,
-                order           : this.order,
-                description     : this.description,
-                name            : this.name,
-                email           : this.email,
-                phone           : this.phone,
-                currency        : this.currency
+                shopAuthCode: this.shopAuthCode,
+                shopUid: this.shopUid,
+                amount: this.amount,
+                order: this.order,
+                description: this.description,
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                currency: this.currency
             });
         }
 
         QrCode.prototype.init = function () {
             let container = this.containerElement
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://ptg.inversion-kavkaz.ru:7770/qr-api/v1/qr");
+            xhr.open("POST", "http://localhost:7770/qr-api/v1/qr");
+            //xhr.open("POST", "http://ptg.inversion-kavkaz.ru:7770/qr-api/v1/qr");
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             xhr.send(this.json);
 
@@ -64,11 +92,9 @@ var IceDevQr;
         return QrCode;
     }());
     //---------------------------------------------------------------------------------------------
-    var Api = /** @class */ (function () {
-
+    const Api = /** @class */ (function () {
         function Api() {
         }
-
         Api.prototype.qrCode = function () {
 
             this.payButton = document.getElementsByName('payButton')[0]
@@ -79,7 +105,7 @@ var IceDevQr;
         };
 
         Api.prototype.qrCodeSubmit = function () {
-            this.payButton.type = 'hidden';
+            //this.payButton.type = 'hidden';
             var widget = new QrCode(this);
             widget.init();
             return widget;
@@ -110,35 +136,9 @@ if (typeof window['iceDevApi'] === 'undefined') {
 }
 
 
-//--------------------------------------------------------
-/**
- * @fileoverview
- * - Using the 'QRCode for Javascript library'
- * - Fixed dataset of 'QRCode for Javascript library' for support full-spec.
- * - this library has no dependencies.
- *
- * @author davidshimjs
- * @see <a href="http://www.d-project.com/" target="_blank">http://www.d-project.com/</a>
- * @see <a href="http://jeromeetienne.github.com/jquery-qrcode/" target="_blank">http://jeromeetienne.github.com/jquery-qrcode/</a>
- */
-var QRCode;
+//--------реализация QR ------------------------------------------------
 
 (function () {
-    //---------------------------------------------------------------------
-    // QRCode for JavaScript
-    //
-    // Copyright (c) 2009 Kazuhiko Arase
-    //
-    // URL: http://www.d-project.com/
-    //
-    // Licensed under the MIT license:
-    //   http://www.opensource.org/licenses/mit-license.php
-    //
-    // The word "QR Code" is registered trademark of
-    // DENSO WAVE INCORPORATED
-    //   http://www.denso-wave.com/qrcode/faqpatent-e.html
-    //
-    //---------------------------------------------------------------------
     function QR8bitByte(data) {
         this.mode = QRMode.MODE_8BIT_BYTE;
         this.data = data;

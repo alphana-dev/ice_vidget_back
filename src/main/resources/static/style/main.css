@@ -1,0 +1,101 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.iceBitsyPayRow {
+    display: block;
+    margin: 1%;
+    width: 200px;
+}
+.logo_header{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+.logo_header > img{
+    height: 50px;
+    width: 50px;
+}
+
+.wrapper{
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.1), white);
+    width: 100%;
+    padding-top: 50px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns:  repeat(3,1fr);
+    /*background-color: beige;*/
+    border-bottom: rgba(0,0,0,.1) 2px solid;
+}
+.container > div {
+    height: 50px;
+}
+.navigation > nav{
+    cursor: pointer;
+    height: 50px;
+}
+.navigation > nav > a{
+    height: 50px;
+}
+.navigation > nav > a:hover{
+    border-bottom: rgba(0, 0, 0, 0.5) 2px solid;
+    color: black;
+}
+
+.header_title{
+    word-wrap: break-word;
+    font-family: TinkoffSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin:  0 auto;
+}
+
+.nav_row{
+    word-wrap: break-word;
+    align-items: center;
+    color: rgba(0,0,0,.54);
+    display: inline-flex;
+    font: 400 13px/20px dsText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    letter-spacing: 0;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+    transition-property: color,box-shadow;
+    white-space: nowrap;
+    margin-right: 25px;
+}
+
+.set_content{
+    width: 80%;
+    margin: 0 auto;
+
+}
+.prop_content{
+    width: 80%;
+    margin: 0 auto;
+}
+.code{
+    overflow: auto;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 150%
+}
+.tag{
+    color: black;
+}
+.name{
+    color: green;
+}
+.attr{
+    color: darkred;
+}
