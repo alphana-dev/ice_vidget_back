@@ -2,27 +2,58 @@ let IceDevQr;
 let QRCode;
 
 onSet(1);
-
 function onSet(type){
     let set_content = document.getElementsByClassName("set_content")[0];
     let prop_content = document.getElementsByClassName("prop_content")[0];
+    let mobile_content = document.getElementsByClassName("mobile_content")[0];
+
     let prop_row = document.getElementsByClassName("prop_row")[0];
     let set_row = document.getElementsByClassName("set_row")[0];
+    let mobile_row = document.getElementsByClassName("mobile_row")[0];
 
     if (type == 1){
         set_content.style.display = "";
         prop_content.style.display = "none";
+        mobile_content.style.display = "none";
+
         set_row.style.color="black"
-        prop_row.style.color="rgba(0,0,0,.54)"
         set_row.style.borderBottom="rgba(0, 0, 0, 0.5) 2px solid";
+
+        prop_row.style.color="rgba(0,0,0,.54)"
         prop_row.style.borderBottom="";
-    } else {
+
+        mobile_row.style.color="rgba(0,0,0,.54)"
+        mobile_row.style.borderBottom="";
+
+
+    }
+    if (type == 2) {
         set_content.style.display = "none";
         prop_content.style.display = "";
+        mobile_content.style.display = "none";
+
         prop_row.style.color = "black"
-        set_row.style.color = "rgba(0,0,0,.54)"
         prop_row.style.borderBottom="rgba(0, 0, 0, 0.5) 2px solid";
+
+        set_row.style.color = "rgba(0,0,0,.54)"
         set_row.style.borderBottom="";
+
+        mobile_row.style.color="rgba(0,0,0,.54)"
+        mobile_row.style.borderBottom="";
+    }
+    if (type == 3) {
+        set_content.style.display = "none";
+        prop_content.style.display = "none";
+        mobile_content.style.display = "";
+
+        mobile_row.style.color = "black"
+        mobile_row.style.borderBottom="rgba(0, 0, 0, 0.5) 2px solid";
+
+        set_row.style.color = "rgba(0,0,0,.54)"
+        set_row.style.borderBottom="";
+
+        prop_row.style.color="rgba(0,0,0,.54)"
+        prop_row.style.borderBottom="";
     }
 }
 
@@ -64,7 +95,8 @@ function onSet(type){
             let container = this.containerElement
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:7770/qr-api/v1/qr");
-            //xhr.open("POST", "http://ptg.inversion-kavkaz.ru:7770/qr-api/v1/qr");
+            //xhr.open("POST", "http://develop.inversion-kavkaz.ru:7770/qr-api/v1/qr");
+            //xhr.open("POST", "http:/iceqr.inversion.ru:8787/qr-api/v1/qr");
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             xhr.send(this.json);
 
@@ -77,7 +109,7 @@ function onSet(type){
                             width: 200,
                             height: 200
                         });
-                        console.log(this.qrResponse.payload);
+                        //console.log(this.qrResponse.payload);
                         if (this.qrResponse.code == 0) {
                             console.log(this.qrResponse.payload);
                             qrcode.makeCode(this.qrResponse.payload);
