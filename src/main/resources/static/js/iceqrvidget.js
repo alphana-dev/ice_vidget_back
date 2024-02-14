@@ -94,9 +94,8 @@ function onSet(type){
         QrCode.prototype.init = function () {
             let container = this.containerElement
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:7770/qr-api/v1/qr");
-            //xhr.open("POST", "http://develop.inversion-kavkaz.ru:7770/qr-api/v1/qr");
-            //xhr.open("POST", "http:/iceqr.inversion.ru:8787/qr-api/v1/qr");
+            xhr.open("POST", "https://qr.icebitsy.online/qr-api/v1/qr");
+            //xhr.open("POST", "http://localhost:7770/qr-api/v1/qr");
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             xhr.send(this.json);
 
@@ -111,7 +110,7 @@ function onSet(type){
                         });
                         //console.log(this.qrResponse.payload);
                         if (this.qrResponse.code == 0) {
-                            console.log(this.qrResponse.payload);
+                            //console.log(this.qrResponse.payload);
                             qrcode.makeCode(this.qrResponse.payload);
                         } else {
                             container.innerHTML = '<p> Ошибка, Код: ' + this.qrResponse.code + ' </p> <p> ' + this.qrResponse.message + ' </p>'

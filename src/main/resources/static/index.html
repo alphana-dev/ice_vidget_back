@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script async type="text/javascript" src="js/main.js"></script>
+    <script async type="text/javascript" src="js/iceqrvidget.js"></script>
     <link rel="stylesheet" href="style/main.css">
 </head>
 
@@ -13,7 +13,7 @@
 
 <div class="header">
     <div class="logo_header">
-        <img src="images/logo.jpeg">
+        <img src="images/img.png">
         <h3>Ice bitsy</h3>
     </div>
 </div>
@@ -37,6 +37,16 @@
 
     <div class="set_content content">
         <h1>Установка</h1>
+
+        <p class="simple_text">В заголовок страницы вставьте получение скрипта:</p>
+        <pre class="code">
+    <span class="tag"><</span><span class="name">script </span><span class="attr">async type</span><span
+        class="tag"> = </span><span class="name">"text/javascript"</span><span class="attr"> src</span><span
+        class="tag"> = </span><span class="name">"...путь к серверу банка/iceqrvidget.js"</span><span
+        class="tag">><</span><span class="tag">/</span><span class="name">script</span><span
+        class="tag">></span>
+        </pre>
+
         <p class="simple_text">Вставьте код на ваш сайт в место, где должна располагаться кнопка "Оплатить":</p>
 
         <pre class="code">
@@ -119,8 +129,8 @@
 
             <form id="form" class="test_form" name="iceBitsyPayForm" onsubmit="iceDevApi.qrCodeSubmit(); return false;">
                 <input class="iceBitsyPayRow" type="hidden" name="shopAuthCode"
-                       value="eyJhZ2VudGlkIjoiMDAwMDAwMDAwMDAxIiwiaW5ub2dybiI6IjExNTI2NTEwMjA1NDMiLCJ0ZXJtaW5hbFJlZiI6ODEsImxvZ2luIjoiMDAwMDAwMDAwMDAxLjExNTI2NTEwMjA1NDMuYWRtaW4iLCJzaG9wUmVmIjozLCJjb2RlIjoiZDg4MWE2YWEtNTYwMC00YTI3LWFkZWMtMDUyNzAwMjZmMzQ4In0=">
-                <input class="iceBitsyPayRow" type="hidden" name="shopUid" value="123455666778898">
+                       value="eyJhZ2VudGlkIjoiQTAwMDAwMDAwMDQwIiwiaW5ub2dybiI6IjEwMjc3MDAyNTE3NTQiLCJ0ZXJtaW5hbFJlZiI6MjEsImxvZ2luIjoiQTAwMDAwMDAwMDQwLjEwMjc3MDAyNTE3NTQuYWRtaW4iLCJzaG9wUmVmIjoxLCJjb2RlIjoiOWUzZTc0NjgtOWVkOC00MWMwLTlhMTMtNDI0NmRkYjI5YjY1In0=">
+                <input class="iceBitsyPayRow" type="hidden" name="shopUid" value="17a4f6d0681344c0a952c72391409701">
                 <input class="iceBitsyPayRow" type="hidden" name="currency" value="RUB">
                 <input class="iceBitsyPayRow" type="text" placeholder="Сумма заказа обязательное поле" name="amount"
                        required value="">
@@ -165,7 +175,8 @@
                 class="tag">></span>
     </pre>
 
-        <p class="simple_text">Для установки остальных полей, при необходимости, заполните значение атрибута value соответствующего поля </p>
+        <p class="simple_text">Для установки остальных полей, при необходимости, заполните значение атрибута value
+            соответствующего поля </p>
         <pre class="code">
 
         <span class="tag"><</span><span class="name">input </span><span class="attr">class</span><span
@@ -219,7 +230,8 @@
                 class="tag"> = </span><span class="name">""</span><span class="tag">></span>
     </pre>
 
-        <p class="simple_text">Чтобы сделать поле платежной формы обязательным для заполнения, добавьте атрибут required:</p>
+        <p class="simple_text">Чтобы сделать поле платежной формы обязательным для заполнения, добавьте атрибут
+            required:</p>
         <pre class="code">
 
     <span class="tag"><</span><span class="name">input </span><span class="attr">class</span><span
@@ -237,31 +249,31 @@
     <div class="mobile_content content">
         <h1>Получение кода</h1>
         <p class="simple_text">Для получения идентификаторов web-терминала необходимо: </p>
-        <p class="simple_text">Скачать и установить приложение <a href="resources/app-release.apk">"ice-qr"</a>.</p>
-        <p class="simple_text"> <img class = "mobile_image" src="images/2022-09-01_13-12-20.png" >
+        <p class="simple_text">Скачать и установить приложение <a href="https://icedev.ru/file_repos/UGMB/iceSbp.apk">"ice-qr"</a>.
+        </p>
+        <p class="simple_text"><img class="mobile_image" src="images/2022-09-01_13-12-20.png">
             Пройти процедуру регистрации в приложении.</p>
         <p style="clear: left"/>
-        <p class="simple_text"> <img class = "mobile_image" src="images/2022-09-01_13-16-16.png">
+        <p class="simple_text"><img class="mobile_image" src="images/2022-09-01_13-16-16.png">
             перейти на вкладку "web-терминалы".</p>
         <p style="clear: left"/>
-        <p class="simple_text"> <img class = "mobile_image" src="images/2022-09-01_13-17-19.png">
+        <p class="simple_text"><img class="mobile_image" src="images/2022-09-01_13-17-19.png">
             Нажать кнопку "Добавить терминал".</p>
         <p style="clear: left"/>
-        <p class="simple_text"> <img class = "mobile_image" src="images/2022-09-01_13-38-31.png">
-           Ввести данные web-терминала и нажать кнопку "Сохранить". После регистрации web-терминала появяться идентификационные данные.
-        </p><p class="simple_text">Их можно отравить нажав на кнопку "Отправить данные"</p>
+        <p class="simple_text"><img class="mobile_image" src="images/2022-09-01_13-38-31.png">
+            Ввести данные web-терминала и нажать кнопку "Сохранить". После регистрации web-терминала появяться
+            идентификационные данные.
+        </p>
+        <p class="simple_text">Их можно отравить нажав на кнопку "Отправить данные"</p>
         <p style="clear: left"/>
-        <p class="simple_text"> <img class = "mobile_image" src="images/2022-09-01_13-38-57.png">
+        <p class="simple_text"><img class="mobile_image" src="images/2022-09-01_13-38-57.png">
             После регистрации web-терминала появяться идентификационные данные.
             Их можно отравить нажав на кнопку "Отправить данные"</p>
-
-
 
 
     </div>
 
 </div>
-
 
 
 <!--<script type="text/javascript">-->

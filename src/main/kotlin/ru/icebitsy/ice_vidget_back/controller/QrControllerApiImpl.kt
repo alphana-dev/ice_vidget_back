@@ -25,6 +25,7 @@ class QrControllerApiImpl(
         if (qrDataRequest.shopAuthCode != null) {
             try {
                 /**В начале логинимся получаем access_token токен*/
+                println("В начале логинимся получаем access_token токен qrDataRequest.shopAuthCode = " + qrDataRequest.shopAuthCode)
                 val response = backRelationService.loginToBack(qrDataRequest.shopAuthCode)
                 if (response?.statusCode == HttpStatus.OK) {
                     if (response.headers.isNotEmpty()) {
@@ -36,6 +37,8 @@ class QrControllerApiImpl(
                         }
                     }
                     user = response?.body
+                    println("-------------------------------------")
+                    println(user)
                     /** Теперь получаем QR - код*/
                     if (qrDataRequest.shopUid != null) {
                         val qrResp = access_token?.let {
@@ -56,6 +59,7 @@ class QrControllerApiImpl(
                     }
                 }
             } catch (e: FeignException) {
+                println("FeignException - " + e)
                 var response = Gson().fromJson(e.contentUTF8(), DataResponse::class.java)
                 if(response != null) {
                     code = response.code.toString().toDouble().toInt()
@@ -73,7 +77,7 @@ class QrControllerApiImpl(
             var message = "Не указан код авторизации магазина."
         }
         return if (code == 0)
-            ResponseEntity.ok(QrResponse(payload = qrcDto?.regPayload))
+            ResponseEntity.ok(QrResponse(payload = qrcDto?.regPayload, regQrcId = qrcDto?.regQrcId))
         else
             ResponseEntity.ok(QrResponse(code = code, message = message))
     }
